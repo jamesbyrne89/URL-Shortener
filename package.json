@@ -1,11 +1,12 @@
 {
   "name": "url-shortener",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "## Project setup ``` npm install ```",
+  "main": "babel.config.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npx nodemon src/server"
+    "server": "npm start --prefix server",
+    "client": "npm run serve --prefix client"
   },
   "repository": {
     "type": "git",
@@ -17,11 +18,5 @@
   "bugs": {
     "url": "https://github.com/jamesbyrne89/url-shortener/issues"
   },
-  "homepage": "https://github.com/jamesbyrne89/url-shortener#readme",
-  "dependencies": {
-    "express": "^4.17.1"
-  },
-  "devDependencies": {
-    "nodemon": "^1.19.1"
-  }
+  "homepage": "https://github.com/jamesbyrne89/url-shortener#readme"
 }

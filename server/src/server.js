@@ -5,7 +5,6 @@ const app = express();
 
 app.get('/', (req, res) => {
   const htmlPath = path.join(__dirname, '../../client/public', 'index.html');
-  console.log(htmlPath);
   res.sendFile(htmlPath);
 });
 
