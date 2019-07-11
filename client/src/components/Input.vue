@@ -1,11 +1,14 @@
 <template>
   <div>
-    <input
-      class="url-input"
-      placeholder="Enter a url to shorten..."
-      @input="handleInput"
-      v-model="input"
-    />
+    <form @submit="handleSubmit">
+      <input
+        class="url-input"
+        v-bind:placeholder="placeholder"
+        @focus="placeholder = ''"
+        @blur="placeholder = 'Enter a url to shorten...'"
+        v-model="input"
+      />
+    </form>
   </div>
 </template>
 
@@ -13,12 +16,13 @@
 export default {
   name: "Input",
   data: () => ({
-    input: ""
+    input: "",
+    placeholder: "Enter a url to shorten..."
   }),
   methods: {
-    handleInput: e => {
-      // eslint-disable-next-line
-      console.log(e.target.value);
+    handleSubmit: e => {
+      e.preventDefault();
+      alert("Submitted form!");
     }
   }
 };
@@ -40,12 +44,14 @@ li {
 a {
   color: #42b983;
 }
-input {
+.url-input {
   background: #efefef;
-  line-height: 1.5;
-  font-size: 3rem;
+  line-height: 1.75;
+  font-size: 2rem;
   border: 0;
   border-radius: 0.25em;
   padding: 0.25em 0.5em;
+  min-width: 36rem;
+  text-align: center;
 }
 </style>
