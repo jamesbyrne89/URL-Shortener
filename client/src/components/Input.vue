@@ -40,4 +40,12 @@ li {
 a {
   color: #42b983;
 }
+input {
+  background: #efefef;
+  line-height: 1.5;
+  font-size: 3rem;
+  border: 0;
+  border-radius: 0.25em;
+  padding: 0.25em 0.5em;
+}
 </style>

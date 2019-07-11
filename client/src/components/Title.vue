@@ -1,26 +1,18 @@
 <template>
-  <div id="app">
-    <Title text="Minify your urls" />
-    <Input />
-  </div>
+  <h1 class="main-title">{{text}}</h1>
 </template>
 
 <script>
-import Title from "./components/Title.vue";
-import Input from "./components/Input.vue";
-
 export default {
-  name: "app",
-  components: {
-    Input,
-    Title
-  }
+  name: "Title",
+  props: ["text"]
 };
 </script>
 
-<style>
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
+<style scoped>
+.main-title {
+  font-family: "Lato";
+  font-weight: 900;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -35,3 +27,5 @@ export default {
 /*  #892FCC */
 /* #AEA5BF */
 </style>
+
+
