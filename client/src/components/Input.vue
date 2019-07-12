@@ -13,6 +13,8 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   name: "Input",
   data: () => ({
@@ -20,9 +22,13 @@ export default {
     placeholder: "Enter a url to shorten..."
   }),
   methods: {
-    handleSubmit: e => {
+    handleSubmit(e) {
       e.preventDefault();
-      alert("Submitted form!");
+      // eslint-disable-next-line
+      /* eslint-disable */
+      axios.post("/", {
+        url: this.$data.input
+      });
     }
   }
 };
