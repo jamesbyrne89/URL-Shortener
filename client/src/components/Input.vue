@@ -26,7 +26,7 @@ export default {
       e.preventDefault();
       // eslint-disable-next-line
       /* eslint-disable */
-      axios.post("/", {
+      axios.post("/api", {
         url: this.$data.input
       });
     }
