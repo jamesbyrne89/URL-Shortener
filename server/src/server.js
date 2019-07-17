@@ -8,16 +8,15 @@ app.use(express.static(path.join(__dirname, '../../client/dist')));
 
 app.use(bodyParser.json());
 
-// app.get('/', (req, res) => {
-//   const htmlPath = path.join(__dirname, '../../client/dist', 'index.html');
-//   console.log(path.join(__dirname, '../../client/public', 'index.html'));
-//   res.sendFile(htmlPath);
-// });
-
-app.post('/api', (req, res) => {
-  console.log(req.body);
-  res.status(200);
-  res.end();
+app.post('/api/shorten', (req, res) => {
+  let url;
+  try {
+    url = new URL(req.body.url);
+  } catch (err) {
+    console.error(err);
+    return res.status(400).send({ error: 'Invalid URL' });
+  }
+  return res.status(200).send({ URL: url });
 });
 
 app.set('port', process.env.PORT || 3000);

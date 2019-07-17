@@ -22,13 +22,16 @@ export default {
     placeholder: "Enter a url to shorten..."
   }),
   methods: {
-    handleSubmit(e) {
+    async handleSubmit(e) {
       e.preventDefault();
       // eslint-disable-next-line
       /* eslint-disable */
-      axios.post("/api", {
-        url: this.$data.input
-      });
+      axios
+        .post("/api/shorten", {
+          url: this.$data.input
+        })
+        .then(res => res.json())
+        .catch(err => console.error(err));
     }
   }
 };
