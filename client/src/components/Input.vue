@@ -24,20 +24,19 @@ export default {
   methods: {
     async handleSubmit(e) {
       e.preventDefault();
-      // eslint-disable-next-line
-      /* eslint-disable */
+
       axios
         .post("/api/shorten", {
           url: this.$data.input
         })
-        .then(res => res.json())
-        .catch(err => console.error(err));
+        .then(res => console.log(res.data)) // eslint-disable-line
+        .catch(err => console.error(err)); // eslint-disable-line
     }
   }
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
+
 <style scoped>
 h3 {
   margin: 40px 0 0;
