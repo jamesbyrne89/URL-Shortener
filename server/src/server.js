@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
+const chalk = require('chalk');
 
 const app = express();
 
@@ -13,7 +14,7 @@ app.post('/api/shorten', (req, res) => {
   try {
     url = new URL(req.body.url);
   } catch (err) {
-    console.error(err);
+    console.log(chalk.red(err));
     return res.status(400).send({ error: 'Invalid URL' });
   }
   return res.status(200).send({ URL: url });
