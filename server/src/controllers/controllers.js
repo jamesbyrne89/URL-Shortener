@@ -39,4 +39,19 @@ async function shortenURL(req, res, next, db) {
   next();
 }
 
-module.exports = { validateURL, shortenURL };
+function checkIfShortIdExists(db) {
+  return async (req, res) => {
+    const { short_id } = req.params;
+    try {
+      const match = await db.collection('shortenedURLs').findOne({ short_id });
+      if (match) {
+        return res.redirect(match.original_url);
+      }
+    } catch (err) {
+      return res.status(500).send('Error connecting to database');
+    }
+    return res.status(404).send('URL not found');
+  };
+}
+
+module.exports = { validateURL, shortenURL, checkIfShortIdExists };

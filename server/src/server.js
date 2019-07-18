@@ -4,7 +4,11 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const { yellow } = require('chalk');
 
-const { validateURL, shortenURL } = require('./controllers/controllers');
+const {
+  validateURL,
+  shortenURL,
+  checkIfShortIdExists
+} = require('./controllers/controllers');
 
 const { MongoClient } = require('mongodb');
 
@@ -40,6 +44,11 @@ app.post('/api/shorten', async (req, res, next) => {
 app.post('/api/shorten', (req, res) => {
   const { shortened } = req;
   res.status(200).json(shortened);
+});
+
+app.get('*/:short_id', async (req, res) => {
+  await initialiseDatabase();
+  await checkIfShortIdExists(app.locals.db)(req, res);
 });
 
 app.set('port', process.env.PORT || 3000);
