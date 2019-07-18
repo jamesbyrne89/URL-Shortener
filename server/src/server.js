@@ -32,11 +32,15 @@ async function initialiseDatabase() {
   }
 }
 
-const db = await initialiseDatabase();
-
 app.post('/api/shorten', validateURL);
-app.post('/api/shorten', shortenURL(db));
-app.post('/api/shorten', (req, res) => console.log('hi', req));
+app.post('/api/shorten', async (req, res, next) => {
+  await initialiseDatabase();
+  shortenURL(req, res, next, app.locals.db);
+});
+app.post('/api/shorten', (req, res) => {
+  const { shortened } = req;
+  res.status(200).json(shortened);
+});
 
 app.set('port', process.env.PORT || 3000);
 

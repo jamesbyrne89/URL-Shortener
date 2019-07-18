@@ -1,5 +1,6 @@
 const { red } = require('chalk');
 const dns = require('dns');
+const nanoid = require('nanoid');
 
 function validateURL(req, res, next) {
   let { url } = req.body;
@@ -14,33 +15,28 @@ function validateURL(req, res, next) {
     if (err) {
       return res.status(404).send({ error: 'Address not found' });
     }
-
     next();
   });
 }
 
-function shortenURL(db) {
-  return (req, res, next) => {
-    const { url } = req;
-    console.log(db);
-    const shortenedURLs = db.collection('shortenedURLs');
-    console.log(shortenedURLs);
-    req.shortened = shortenedURLs.findOneAndUpdate(
-      { original_url: url },
-      {
-        $setOnINsert: {
-          original_url: url,
-          short_id: nanoid(7)
-        }
-      },
-      {
-        returnOriginal: false,
-        upsert: true
+async function shortenURL(req, res, next, db) {
+  const { url } = req.body;
+  const shortenedURLs = db.collection('shortenedURLs');
+  const result = await shortenedURLs.findOneAndUpdate(
+    { original_url: url },
+    {
+      $setOnInsert: {
+        original_url: url,
+        short_id: nanoid(7)
       }
-    );
-    console.log(req);
-    next();
-  };
+    },
+    {
+      returnOriginal: false,
+      upsert: true
+    }
+  );
+  req.shortened = result.value;
+  next();
 }
 
 module.exports = { validateURL, shortenURL };
