@@ -24,8 +24,9 @@ export default {
     output: ""
   }),
   methods: {
-    handleOutput(url) {
-      this.$set(this, "output", url);
+    handleOutput(data) {
+      const shortenedUrl = `${location.origin}/${data.short_id}`;
+      this.$set(this, "output", shortenedUrl);
     },
     async handleSubmit(input) {
       axios
@@ -34,7 +35,7 @@ export default {
         })
         .then(res => {
           console.log(res.data);
-          handleOutput(res.data);
+          this.handleOutput(res.data);
         }) // eslint-disable-line
         .catch(err => {
           console.error(err);

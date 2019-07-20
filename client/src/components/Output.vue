@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <div class="url-output">
+    <div v-show="!!url">Your shortened url is:</div>
     <output>{{url}}</output>
   </div>
 </template>
@@ -10,3 +11,11 @@ export default {
   props: ["url"]
 };
 </script>
+
+
+<style scoped>
+.url-output {
+  font-size: 2rem;
+  margin-top: 2rem;
+}
+</style>
