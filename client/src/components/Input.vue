@@ -8,6 +8,7 @@
         @blur="placeholder = 'Enter a url to shorten...'"
         v-model="input"
       />
+      <div class="input-error" v-show="!!error">{{error}}</div>
     </form>
   </div>
 </template>
@@ -15,6 +16,7 @@
 <script>
 export default {
   name: "Input",
+  props: ["error"],
   data: () => ({
     input: "",
     placeholder: "Enter a url to shorten..."

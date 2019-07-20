@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Title text="Minify your urls" />
-    <Input @submit-form="handleSubmit" />
+    <Input @submit-form="handleSubmit" :error="error" />
     <Output url="Minfied url goes here" />
   </div>
 </template>
@@ -19,16 +19,22 @@ export default {
     Title,
     Output
   },
+  data: () => ({
+    error: null
+  }),
   methods: {
     async handleSubmit(e) {
       e.preventDefault();
-      console.log("hanels submit");
+
       axios
         .post("/api/shorten", {
           url: this.$data.input
         })
         .then(res => console.log(res.data)) // eslint-disable-line
-        .catch(err => console.error(err)); // eslint-disable-line
+        .catch(err => {
+          console.error(err);
+          this.$set(this, "error", err.response.data.error);
+        }); // eslint-disable-line
     }
   }
 };
