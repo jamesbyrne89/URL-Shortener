@@ -24,6 +24,9 @@ app.use(bodyParser.json());
 // MongoDB
 
 async function initialiseDatabase() {
+  if (app.locals.db) {
+    return;
+  }
   try {
     const client = await MongoClient.connect(databaseUrl, {
       useNewUrlParser: true
