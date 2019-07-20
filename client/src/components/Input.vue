@@ -22,8 +22,9 @@ export default {
     placeholder: "Enter a url to shorten..."
   }),
   methods: {
-    onSubmit(event) {
-      this.$emit("submit-form", event);
+    onSubmit(e) {
+      e.preventDefault();
+      this.$emit("submit-form", this.input);
     }
   }
 };
@@ -54,5 +55,11 @@ a {
   padding: 0.25em 0.5em;
   min-width: 36rem;
   text-align: center;
+}
+
+.input-error {
+  color: red;
+  margin-top: 1rem;
+  font-size: 1.25rem;
 }
 </style>

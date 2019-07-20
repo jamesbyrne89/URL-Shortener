@@ -4,11 +4,11 @@ const {
   shortenURL,
   checkIfShortIdExists
 } = require('./controllers/controllers');
+const app = require('./server');
 
 router.post('/api/shorten', validateURL);
 router.post('/api/shorten', async (req, res, next) => {
-  await initialiseDatabase();
-  shortenURL(req, res, next, app.locals.db);
+  shortenURL(req, res, next);
 });
 router.post('/api/shorten', (req, res) => {
   const { shortened } = req;
@@ -16,8 +16,7 @@ router.post('/api/shorten', (req, res) => {
 });
 
 router.get('*/:short_id', async (req, res) => {
-  await initialiseDatabase();
-  await checkIfShortIdExists(app.locals.db)(req, res);
+  await checkIfShortIdExists()(req, res);
 });
 
 module.exports = router;

@@ -7,7 +7,6 @@
 <script>
 export default {
   name: "Output",
-  props: ["url"],
-  data: () => ({})
+  props: ["url"]
 };
 </script>
