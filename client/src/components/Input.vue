@@ -1,6 +1,6 @@
 <template>
   <div>
-    <form @submit="handleSubmit">
+    <form @submit="onSubmit">
       <input
         class="url-input"
         v-bind:placeholder="placeholder"
@@ -13,8 +13,6 @@
 </template>
 
 <script>
-import axios from "axios";
-
 export default {
   name: "Input",
   data: () => ({
@@ -22,15 +20,8 @@ export default {
     placeholder: "Enter a url to shorten..."
   }),
   methods: {
-    async handleSubmit(e) {
-      e.preventDefault();
-
-      axios
-        .post("/api/shorten", {
-          url: this.$data.input
-        })
-        .then(res => console.log(res.data)) // eslint-disable-line
-        .catch(err => console.error(err)); // eslint-disable-line
+    onSubmit(event) {
+      this.$emit("submit-form", event);
     }
   }
 };
