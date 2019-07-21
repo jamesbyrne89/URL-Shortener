@@ -54,7 +54,8 @@ export default {
 <style>
 @font-face {
   font-family: "ProximaNova";
-  src: url("./assets/fonts/Proxima-Nova-Regular.otf") format("otf");
+  src: url("./assets/fonts/Proxima-Nova-Regular.otf") format("opentype");
+  /* url("./assets/fonts/Proxima-Nova-Regular.woff") format("woff"); */
   /* url("/assets/fonts/OpenSans-Regular-webfont.woff") format("woff"); */
 }
 

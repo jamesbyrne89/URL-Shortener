@@ -11,7 +11,7 @@ export default {
 
 <style scoped>
 .main-title {
-  font-weight: 900;
+  font-weight: bold;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

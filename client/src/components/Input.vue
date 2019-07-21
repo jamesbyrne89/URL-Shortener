@@ -76,6 +76,9 @@ a {
 }
 
 .input__submit-btn {
+  font-family: "ProximaNova", "times new roman", Arial, sans-serif;
+  font-size: 1.25rem;
+  letter-spacing: 0.04em;
   background: #0223ff;
   color: white;
   border: 0;
@@ -87,7 +90,7 @@ a {
   justify-content: center;
   align-items: center;
   height: 4rem;
-  width: 20rem;
+  width: 26rem;
 }
 
 .input__submit-btn .loader-dots {
