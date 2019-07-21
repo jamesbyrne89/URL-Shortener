@@ -2,7 +2,7 @@
   <div id="app">
     <main class="wrapper">
       <Title text="Minify your urls" />
-      <Input @submit-form="handleSubmit" :error="error" />
+      <Input @submit-form="handleSubmit" :error="error" :loading="loading" />
       <Output :url="output" />
     </main>
   </div>
@@ -23,7 +23,8 @@ export default {
   },
   data: () => ({
     error: null,
-    output: ""
+    output: "",
+    loading: false
   }),
   methods: {
     handleOutput(data) {
@@ -31,17 +32,19 @@ export default {
       this.$set(this, "output", shortenedUrl);
     },
     async handleSubmit(input) {
+      this.$set(this, "loading", true);
       axios
         .post("/api/shorten", {
           url: input
         })
         .then(res => {
-          console.log(res.data);
+          this.$set(this, "loading", false);
           this.handleOutput(res.data);
         }) // eslint-disable-line
         .catch(err => {
           console.error(err);
           this.$set(this, "error", err.response.data.error);
+          this.$set(this, "loading", false);
         }); // eslint-disable-line
     }
   }
