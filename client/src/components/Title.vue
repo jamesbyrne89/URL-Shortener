@@ -11,7 +11,6 @@ export default {
 
 <style scoped>
 .main-title {
-  font-family: "Lato";
   font-weight: 900;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

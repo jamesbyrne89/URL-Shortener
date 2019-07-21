@@ -1,8 +1,10 @@
 <template>
   <div id="app">
-    <Title text="Minify your urls" />
-    <Input @submit-form="handleSubmit" :error="error" />
-    <Output :url="output" />
+    <main class="wrapper">
+      <Title text="Minify your urls" />
+      <Input @submit-form="handleSubmit" :error="error" />
+      <Output :url="output" />
+    </main>
   </div>
 </template>
 
@@ -47,13 +49,24 @@ export default {
 </script>
 
 <style>
+@font-face {
+  font-family: "ProximaNova";
+  src: url("./assets/fonts/Proxima-Nova-Regular.otf") format("otf");
+  /* url("/assets/fonts/OpenSans-Regular-webfont.woff") format("woff"); */
+}
+
 #app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-family: "ProximaNova", "times new roman", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  display: flex;
+  justify-content: center;
+}
+.wrapper {
+  text-align: center;
 }
 /* #130A1D */
 /* #FDFCFD */
