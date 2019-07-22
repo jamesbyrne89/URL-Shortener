@@ -8,7 +8,7 @@
         @blur="placeholder = 'Enter a url to shorten...'"
         v-model="input"
       />
-      <div class="input__error" v-show="!!error">{{error}}</div>
+      <div class="input__error">{{error}}</div>
       <button
         class="input__submit-btn"
         :class="{'input__submit-btn--loading': loading}"
@@ -59,38 +59,49 @@ a {
   color: #0223ff;
 }
 .input {
-  background: #efefef;
-  line-height: 1.75;
-  font-size: 2rem;
+  box-sizing: border-box;
+  font-family: "ProximaNova", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif;
+  background: white;
+  line-height: 1.45;
+  font-size: 1.25rem;
   border: 0;
-  border-radius: 0.25em;
+  border-bottom: solid 1px #e2e3e9;
   padding: 0.25em 0.5em;
-  min-width: 36rem;
-  text-align: center;
+  width: 40rem;
+  max-width: 100%;
+  margin-top: 4rem;
+}
+
+.input::placeholder {
+  color: #8f94a7;
 }
 
 .input__error {
   color: red;
   margin-top: 1rem;
   font-size: 1.25rem;
+  min-height: 1.25rem;
+  line-height: 1;
 }
 
 .input__submit-btn {
-  font-family: "ProximaNova", "times new roman", Arial, sans-serif;
+  font-family: "ProximaNova", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif;
   font-size: 1.25rem;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.035em;
   background: #0223ff;
   color: white;
   border: 0;
   border-radius: 0.5em;
   display: block;
-  margin: 2rem auto 0;
+  margin: 4rem auto 0;
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 4rem;
-  width: 26rem;
+  width: 40rem;
 }
 
 .input__submit-btn .loader-dots {

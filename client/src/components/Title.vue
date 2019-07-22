@@ -11,12 +11,13 @@ export default {
 
 <style scoped>
 .main-title {
-  font-weight: bold;
+  font-family: "ProximaNovaBold", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif;
+  font-size: 2rem;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  color: #000;
 }
 /* #130A1D */
 /* #FDFCFD */
