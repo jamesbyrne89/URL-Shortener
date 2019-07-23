@@ -44,7 +44,7 @@ export default {
 </script>
 
 
-<style scoped>
+<style lang="scss" scoped>
 h3 {
   margin: 40px 0 0;
 }
@@ -72,53 +72,66 @@ a {
   width: 40rem;
   max-width: 100%;
   margin-top: 4rem;
-}
+  &::placeholder {
+    color: #8f94a7;
+  }
 
-.input::placeholder {
-  color: #8f94a7;
-}
+  &__error {
+    color: red;
+    font-weight: bold;
+    margin-top: 1rem;
+    font-size: 1.25rem;
+    min-height: 1.25rem;
+    line-height: 1;
+  }
 
-.input__error {
-  color: red;
-  font-weight: bold;
-  margin-top: 1rem;
-  font-size: 1.25rem;
-  min-height: 1.25rem;
-  line-height: 1;
-}
+  &__submit-btn {
+    font-family: "ProximaNova", -apple-system, BlinkMacSystemFont, "Segoe UI",
+      Roboto, Helvetica, Arial, sans-serif;
+    font-size: 1.25rem;
+    position: relative;
+    letter-spacing: 0.035em;
+    background: rgba(2, 35, 255, 1);
+    color: white;
+    border: 0;
+    border-radius: 0.5em;
+    display: block;
+    margin: 3.25rem auto 0;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 4rem;
+    width: 40rem;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: #000;
+      border-radius: 0.5em;
+      opacity: 0;
+      z-index: 1;
+      transition: opacity 0.2s ease-out;
+    }
+  }
+  &__submit-btn:hover::before {
+    opacity: 0.2;
+  }
 
-.input__submit-btn {
-  font-family: "ProximaNova", -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, Helvetica, Arial, sans-serif;
-  font-size: 1.25rem;
-  position: relative;
-  letter-spacing: 0.035em;
-  background: rgba(2, 35, 255, 1);
-  color: white;
-  border: 0;
-  border-radius: 0.5em;
-  display: block;
-  margin: 3.25rem auto 0;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 4rem;
-  width: 40rem;
-}
+  &__submit-btn .loader-dots {
+    display: none;
+  }
 
-.input__submit-btn::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background: #000;
-  border-radius: 0.5em;
-  opacity: 0;
-  z-index: 1;
-  transition: opacity 0.2s ease-out;
+  &__submit-btn--loading .loader-dots {
+    display: block;
+  }
+
+  &__submit-btn--loading > span {
+    display: none;
+  }
 }
 
 .btn__text {
@@ -126,51 +139,6 @@ a {
   position: relative;
 }
 
-.input__submit-btn:hover::before {
-  opacity: 0.2;
-}
-
-.input__submit-btn .loader-dots {
-  display: none;
-}
-
-.input__submit-btn--loading .loader-dots {
-  display: block;
-}
-
-.input__submit-btn--loading > span {
-  display: none;
-}
-
-/* .button {
-  border-radius: 4px;
-  width: 100%;
-  color: #fff;
-  max-width: 350px;
-  font-size: 16px;
-  text-transform: none;
-  display: inline-block;
-  text-align: center;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  vertical-align: middle;
-  user-select: none;
-  border: 0;
-  padding: 14px;
-  cursor: pointer;
-  transition: all .15s ease-in-out;
-  -webkit-appearance: none;
-  letter-spacing: pxToEm(0.47);
-  text-transform: uppercase;
-  position: relative;
-} */
-
-.button:hover,
-.button:focus {
-  text-decoration: none;
-  outline: 0;
-}
 .button > * {
   vertical-align: middle;
 }
@@ -194,31 +162,31 @@ a {
   line-height: 0;
   height: 12px;
   margin-left: 12px;
-}
-.loader-dots__dot {
-  display: inline-block;
-  width: 12px;
-  height: 12px;
-  border-radius: 100%;
-  background: white;
-  margin: 0 5px;
-  opacity: 0.5;
-  transform: scale(0.6);
-  animation-name: pulse;
-  animation-duration: 0.4s;
-  animation-direction: alternate;
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-in-out;
-  transform-origin: left bottom;
-}
-.loader-dots__dot:nth-child(1) {
-  animation-delay: 0.1333s;
-}
-.loader-dots__dot:nth-child(2) {
-  animation-delay: 0.2666s;
-}
-.loader-dots__dot:nth-child(3) {
-  animation-delay: 0.4s;
+  &__dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 100%;
+    background: white;
+    margin: 0 5px;
+    opacity: 0.5;
+    transform: scale(0.6);
+    animation-name: pulse;
+    animation-duration: 0.4s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    transform-origin: left bottom;
+  }
+  &__dot:nth-child(1) {
+    animation-delay: 0.1333s;
+  }
+  &__dot:nth-child(2) {
+    animation-delay: 0.2666s;
+  }
+  &__dot:nth-child(3) {
+    animation-delay: 0.4s;
+  }
 }
 
 @keyframes pulse {
