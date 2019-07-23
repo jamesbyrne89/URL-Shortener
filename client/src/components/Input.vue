@@ -13,6 +13,7 @@
         class="input__submit-btn"
         :class="{'input__submit-btn--loading': loading}"
         type="submit"
+        :disabled="input.trim().length === 0"
       >
         <span class="btn__text">Minify</span>
         <i class="loader-dots">
@@ -79,6 +80,7 @@ a {
 
 .input__error {
   color: red;
+  font-weight: bold;
   margin-top: 1rem;
   font-size: 1.25rem;
   min-height: 1.25rem;
@@ -89,19 +91,43 @@ a {
   font-family: "ProximaNova", -apple-system, BlinkMacSystemFont, "Segoe UI",
     Roboto, Helvetica, Arial, sans-serif;
   font-size: 1.25rem;
+  position: relative;
   letter-spacing: 0.035em;
-  background: #0223ff;
+  background: rgba(2, 35, 255, 1);
   color: white;
   border: 0;
   border-radius: 0.5em;
   display: block;
-  margin: 4rem auto 0;
+  margin: 3.25rem auto 0;
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 4rem;
   width: 40rem;
+}
+
+.input__submit-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: #000;
+  border-radius: 0.5em;
+  opacity: 0;
+  z-index: 1;
+  transition: opacity 0.2s ease-out;
+}
+
+.btn__text {
+  z-index: 2;
+  position: relative;
+}
+
+.input__submit-btn:hover::before {
+  opacity: 0.2;
 }
 
 .input__submit-btn .loader-dots {
