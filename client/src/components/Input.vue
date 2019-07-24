@@ -13,7 +13,7 @@
         class="input__submit-btn"
         :class="{'input__submit-btn--loading': loading}"
         type="submit"
-        :disabled="input.trim().length === 0"
+        :disabled="input.trim().length === 0 || loading"
       >
         <span class="btn__text">Minify</span>
         <i class="loader-dots">
@@ -45,20 +45,6 @@ export default {
 
 
 <style lang="scss" scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #0223ff;
-}
 .input {
   box-sizing: border-box;
   font-family: "ProximaNova", -apple-system, BlinkMacSystemFont, "Segoe UI",

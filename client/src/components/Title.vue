@@ -9,7 +9,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .main-title {
   font-family: "ProximaNovaBold", -apple-system, BlinkMacSystemFont, "Segoe UI",
     Roboto, Helvetica, Arial, sans-serif;

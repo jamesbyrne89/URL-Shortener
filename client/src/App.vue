@@ -87,6 +87,7 @@ import axios from "axios";
 import Title from "./components/Title.vue";
 import Input from "./components/Input.vue";
 import Output from "./components/Output.vue";
+import { clearTimeout } from "timers";
 
 export default {
   name: "app",
@@ -106,12 +107,18 @@ export default {
       this.$set(this, "output", shortenedUrl);
     },
     async handleSubmit(input) {
-      this.$set(this, "loading", true);
+      const setLoadingState = setTimeout(() => {
+        if (!!this.output && !this.error) {
+          this.$set(this, "loading", true);
+        }
+      }, 150);
+
       axios
         .post("/api/shorten", {
           url: input
         })
         .then(res => {
+          clearTimeout(setLoadingState);
           this.$set(this, "loading", false);
           this.handleOutput(res.data);
         }) // eslint-disable-line
