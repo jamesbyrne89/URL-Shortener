@@ -1,8 +1,8 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
-const { yellow } = require('chalk');
-const routes = require('./routes');
+const routes = require('./controllers/routes');
+const config = require('./utils/config');
 
 const app = express();
 
@@ -13,10 +13,6 @@ app.use(bodyParser.json());
 
 app.use(routes);
 
-app.set('port', process.env.PORT || 3000);
-
-const server = app.listen(app.get('port'), () => {
-  console.log(yellow(`Server running at port ${server.address().port}`));
-});
+app.set('port', config.PORT || 3000);
 
 module.exports = app;

@@ -13,7 +13,7 @@ export default {
 .main-title {
   font-family: "ProximaNovaBold", -apple-system, BlinkMacSystemFont, "Segoe UI",
     Roboto, Helvetica, Arial, sans-serif;
-  font-size: 2rem;
+  font-size: 3rem;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

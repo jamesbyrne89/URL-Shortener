@@ -57,7 +57,7 @@ export default {
   padding: 0.25em 0.5em;
   width: 40rem;
   max-width: 100%;
-  margin-top: 4rem;
+  margin-top: 5rem;
   &::placeholder {
     color: #8f94a7;
   }

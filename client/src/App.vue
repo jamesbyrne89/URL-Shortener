@@ -107,18 +107,12 @@ export default {
       this.$set(this, "output", shortenedUrl);
     },
     async handleSubmit(input) {
-      const setLoadingState = setTimeout(() => {
-        if (!!this.output && !this.error) {
-          this.$set(this, "loading", true);
-        }
-      }, 150);
-
+      this.$set(this, "loading", true);
       axios
         .post("/api/shorten", {
           url: input
         })
         .then(res => {
-          clearTimeout(setLoadingState);
           this.$set(this, "loading", false);
           this.handleOutput(res.data);
         }) // eslint-disable-line
@@ -152,6 +146,7 @@ body {
   margin: 0;
   padding: 0;
   height: 100vh;
+  overflow: auto;
 }
 
 * {
@@ -167,7 +162,7 @@ body {
   color: #2c3e50;
   margin: auto;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 3fr 2fr;
   grid-column-gap: 3rem;
   padding: 0 3rem;
   margin-top: 12rem;

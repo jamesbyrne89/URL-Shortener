@@ -1,7 +1,7 @@
 const { red } = require('chalk');
 const dns = require('dns');
 const nanoid = require('nanoid');
-const initDb = require('../db');
+const initDb = require('../db/urls');
 
 function validateURL(req, res, next) {
   let { url } = req.body;

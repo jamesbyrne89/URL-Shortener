@@ -3,8 +3,7 @@ const {
   validateURL,
   shortenURL,
   checkIfShortIdExists
-} = require('./controllers/controllers');
-const app = require('./server');
+} = require('../utils/middleware');
 
 router.post('/api/shorten', validateURL);
 router.post('/api/shorten', async (req, res, next) => {

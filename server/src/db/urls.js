@@ -1,12 +1,10 @@
-const dotenv = require('dotenv').config();
 const { red, yellow } = require('chalk');
 const { MongoClient } = require('mongodb');
-
-const databaseUrl = process.env.DATABASE;
+const config = require('../utils/config');
 
 async function init(req) {
   try {
-    const client = await MongoClient.connect(databaseUrl, {
+    const client = await MongoClient.connect(config.DATABASE_URL, {
       useNewUrlParser: true
     });
     req.app.locals.db = client.db('url-shortener');

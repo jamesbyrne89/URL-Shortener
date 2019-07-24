@@ -16,6 +16,7 @@ export default {
 <style scoped>
 .url-output {
   font-size: 2rem;
+  min-height: 2rem;
   margin-top: 2rem;
 }
 </style>
