@@ -54,7 +54,7 @@ export default {
   font-size: 1.25rem;
   border: 0;
   border-bottom: solid 1px #e2e3e9;
-  padding: 0.25em 0.5em;
+  padding: 0.25em;
   width: 40rem;
   max-width: 100%;
   margin-top: 5rem;
@@ -72,23 +72,14 @@ export default {
   }
 
   &__submit-btn {
-    font-family: "ProximaNova", -apple-system, BlinkMacSystemFont, "Segoe UI",
-      Roboto, Helvetica, Arial, sans-serif;
-    font-size: 1.25rem;
-    position: relative;
-    letter-spacing: 0.035em;
-    background: rgba(2, 35, 255, 1);
-    color: white;
-    border: 0;
-    border-radius: 0.5em;
-    display: block;
     margin: 3.25rem auto 0;
-    cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 4rem;
     width: 40rem;
+    border-radius: 0.5em;
+    background: rgba(2, 35, 255, 1);
     &::before {
       content: "";
       position: absolute;

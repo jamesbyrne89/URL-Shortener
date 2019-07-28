@@ -171,6 +171,23 @@ body {
   text-align: center;
 }
 
+.flex {
+  display: flex;
+}
+
+button {
+  font-family: "ProximaNova", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif;
+  font-size: 1.25rem;
+  position: relative;
+  letter-spacing: 0.035em;
+  border: none;
+  color: white;
+  display: block;
+  cursor: pointer;
+  background: none;
+}
+
 app > * {
   max-width: 40%;
   padding: 0 4rem;
@@ -179,6 +196,11 @@ app > * {
 .hero-image {
   max-height: 25rem;
   margin: auto;
+}
+
+::selection {
+  color: white;
+  background-color: rgba(2, 35, 255, 1);
 }
 /* #130A1D */
 /* #FDFCFD */
