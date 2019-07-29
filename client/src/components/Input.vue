@@ -3,6 +3,7 @@
     <form @submit="onSubmit">
       <input
         class="input"
+        :class="{'input--has-error': !!error}"
         v-bind:placeholder="placeholder"
         @focus="placeholder = ''"
         @blur="placeholder = 'Enter a url to shorten...'"
@@ -55,15 +56,19 @@ export default {
   border: 0;
   border-bottom: solid 1px #e2e3e9;
   padding: 0.25em;
-  width: 40rem;
-  max-width: 100%;
+  max-width: 40rem;
+  width: 100%;
   margin-top: 5rem;
   &::placeholder {
     color: #8f94a7;
   }
 
+  &--has-error {
+    border-bottom: solid 1px #ff0b00;
+  }
+
   &__error {
-    color: red;
+    color: #ff0b00;
     font-weight: bold;
     margin-top: 1rem;
     font-size: 1.25rem;

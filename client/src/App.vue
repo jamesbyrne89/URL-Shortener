@@ -87,7 +87,6 @@ import axios from "axios";
 import Title from "./components/Title.vue";
 import Input from "./components/Input.vue";
 import Output from "./components/Output.vue";
-import { clearTimeout } from "timers";
 
 export default {
   name: "app",
@@ -115,8 +114,9 @@ export default {
         .then(res => {
           this.$set(this, "loading", false);
           this.handleOutput(res.data);
-        }) // eslint-disable-line
+        })
         .catch(err => {
+          // eslint-disable-next-line
           console.error(err);
           this.$set(this, "error", err.response.data.error);
           this.$set(this, "loading", false);
@@ -130,15 +130,11 @@ export default {
 @font-face {
   font-family: "ProximaNova";
   src: url("./assets/fonts/Proxima-Nova-Regular.otf") format("opentype");
-  /* url("./assets/fonts/Proxima-Nova-Regular.woff") format("woff"); */
-  /* url("/assets/fonts/OpenSans-Regular-webfont.woff") format("woff"); */
 }
 
 @font-face {
   font-family: "ProximaNovaBold";
   src: url("./assets/fonts/Proxima-Nova-Bold.otf") format("opentype");
-  /* url("./assets/fonts/Proxima-Nova-Regular.woff") format("woff"); */
-  /* url("/assets/fonts/OpenSans-Regular-webfont.woff") format("woff"); */
 }
 
 html,

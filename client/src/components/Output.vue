@@ -42,7 +42,6 @@ export default {
   methods: {
     copyToClipboard() {
       const output = document.querySelector(".hidden-input");
-      console.log(output);
       output.select();
       document.execCommand("copy");
     }
