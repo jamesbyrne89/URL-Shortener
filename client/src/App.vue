@@ -79,6 +79,7 @@
       />
       <path d="M537 537.71H75v-257h462zm-460-2h458v-253H77z" fill="#2f2e41" />
     </svg>
+    <Footer />
   </div>
 </template>
 
@@ -87,13 +88,15 @@ import axios from "axios";
 import Title from "./components/Title.vue";
 import Input from "./components/Input.vue";
 import Output from "./components/Output.vue";
+import Footer from "./components/Footer.vue";
 
 export default {
   name: "app",
   components: {
     Input,
     Title,
-    Output
+    Output,
+    Footer
   },
   data: () => ({
     error: null,
@@ -160,11 +163,13 @@ body {
   margin: auto;
   display: grid;
   grid-template-columns: 3fr 2fr;
+  grid-template-rows: 1fr auto;
   grid-column-gap: 3rem;
   padding: 0 3rem;
-  margin-top: 12rem;
+  height: 100vh;
 }
 .wrapper {
+  margin-top: 12rem;
   text-align: center;
 }
 
@@ -193,6 +198,7 @@ app > * {
 .hero-image {
   max-height: 25rem;
   margin: auto;
+  margin-top: 12rem;
 }
 
 ::selection {
