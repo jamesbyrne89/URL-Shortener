@@ -106,6 +106,7 @@ export default {
       this.$set(this, "output", shortenedUrl);
     },
     async handleSubmit(input) {
+      this.$set(this, "error", null);
       this.$set(this, "loading", true);
       axios
         .post("/api/shorten", {
